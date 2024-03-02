@@ -49,27 +49,32 @@ async function checkWeather(city){
     document.querySelector(".wind").innerHTML = Math.round(data.wind.speed) + " km/h";
 
     //updating the images
-    if(data.weather[0].main === "Clear"){
-        weatherIcon.src = "weather-app-img/clear.png"
+    switch(data.weather[0].main) {
+        case "Clear":
+            weatherIcon.src = "weather-app-img/clear.png";
+            break;
+        case "Clouds":
+            weatherIcon.src = "weather-app-img/clouds.png";
+            break;
+        case "Drizzle":
+            weatherIcon.src = "weather-app-img/drizzle.png";
+            break;
+        case "Humidity":
+            weatherIcon.src = "weather-app-img/humidity.png";
+            break;
+        case "Mist":
+            weatherIcon.src = "weather-app-img/mist.png";
+            break;
+        case "Snow":
+            weatherIcon.src = "weather-app-img/snow.png";
+            break;
+        case "Wind":
+            weatherIcon.src = "weather-app-img/wind.png";
+            break;
+        default:
+            // Handle the case when none of the above conditions match
     }
-    else if(data.weather[0].main === "Clouds"){
-        weatherIcon.src = "weather-app-img/clouds.png"
-    }
-    else if(data.weather[0].main === "Drizzle"){
-        weatherIcon.src = "weather-app-img/drizzle.png"
-    }
-    else if(data.weather[0].main === "Humidity"){
-        weatherIcon.src = "weather-app-img/humidity.png"
-    }
-    else if(data.weather[0].main === "Mist"){
-        weatherIcon.src = "weather-app-img/mist.png"
-    }
-    else if(data.weather[0].main === "Snow"){
-        weatherIcon.src = "weather-app-img/snow.png"
-    }
-    else if(data.weather[0].main === "Wind"){
-        weatherIcon.src = "weather-app-img/wind.png"
-    }
+    
 }
 
 searchBtn.addEventListener("click", (event)=>{
